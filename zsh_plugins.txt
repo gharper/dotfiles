@@ -1,0 +1,20 @@
+# robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/
+
+# https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ansible#aliases
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/ansible
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/catimg
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/git
+# https://github.com/tj/git-extras
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/git-extras
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/httpie
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/jira
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/pip
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/pyenv
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/pylint
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/python
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/virtualenvwrapper
+robbyrussell/oh-my-zsh ~/.oh-my-zsh:plugins/web-search
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+

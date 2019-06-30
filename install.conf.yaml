@@ -12,6 +12,7 @@
     ~/.zshrc: zshrc
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.zsh_plugins.txt: zsh_plugins.txt
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

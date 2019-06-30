@@ -1,7 +1,10 @@
 # =============================================================================
 # ZSH Config
 # =============================================================================
-echo -ne "Exporting vars"\\r
+echo -ne "\e[2K\r"; echo -ne "Antibody init"\\r
+source <(antibody init)
+
+echo -ne "\e[2K\r"; echo -ne "Exporting vars"\\r
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -56,7 +59,9 @@ SAVEHIST=100000
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
+echo -ne "\e[2K\r"; echo -ne "Antibody bundle plugins"\\r
+antibody bundle < ~/.zsh_plugins.txt
 
 # User configuration
 
@@ -87,22 +92,26 @@ export PERL_LOCAL_LIB_ROOT="/Users/gharper/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_L
 export PERL_MB_OPT="--install_base \"/Users/gharper/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=/Users/gharper/perl5"
 
+export EMAIL="gharper@skytap.com"
+export SKYTAP_API_TOKEN="1da285d771f74d85d77fd256faef7e32e28e88ce"
+export PASSWORD=$(cat ~/.ssh/passwd)
 # =============================================================================
 # Oh My Zsh
 # =============================================================================
-echo -ne "\e[2K\r"
-echo -ne "Configuring oh-my-zsh"\\r
-source $ZSH/oh-my-zsh.sh
+#echo -ne "\e[2K\r"; echo -ne "Configuring oh-my-zsh"\\r
+#source $ZSH/oh-my-zsh.sh
 
-if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+#if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+#    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#elif [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+#    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#fi
 if [[ -f ~/.profile ]]; then
+    echo -ne "\e[2K\r"; echo -ne "Sourcing .profile"\\r
     source ~/.profile
 fi
 if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+    echo -ne "\e[2K\r"; echo -ne "Sourcing virtualenvwrapper"\\r
     source /usr/local/bin/virtualenvwrapper.sh
     workon default
 fi
@@ -126,8 +135,7 @@ fi
 # =============================================================================
 # Aliases
 # =============================================================================
-echo -ne "\e[2K\r"
-echo -ne "Setting aliases"\\r
+echo -ne "\e[2K\r"; echo -ne "Setting aliases"\\r
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -191,8 +199,5 @@ alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 # =============================================================================
 # Functions
 # =============================================================================
-echo -ne "\e[2K\r"
-echo -ne "Setting functions"\\r
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-fpath=(/usr/local/share/zsh-completions $fpath)
+echo -ne "\e[2K\r"; echo -ne "Setting functions"\\r
 echo -ne "\e[2K\r"

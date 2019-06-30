@@ -85,11 +85,14 @@ export WORKON_HOME=~/venv
 export LDFLAGS="-L/usr/local/opt/openssl/lib:/usr/local/opt/curl/lib:/usr/local/opt/binutils/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include:/usr/local/opt/curl/include:/usr/local/opt/binutils/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/curl/lib/pkgconfig"
-export SWIG_FEATURES="-cpperraswarn -includeall -I$(brew --prefix openssl)/include"
+if [[ "$(uname 2> /dev/null)" == "Darwin" ]]; then
+  export SWIG_FEATURES="-cpperraswarn -includeall -I$(brew --prefix openssl)/include"
+fi
+
 
 export PERL5LIB="/Users/gharper/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="/Users/gharper/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_MB_OPT="--install_base \"/Users/gharper/perl5\""
+export PERL_MB_OPT="--install_base \"/Usexers/gharper/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=/Users/gharper/perl5"
 
 export EMAIL="gharper@skytap.com"
@@ -110,9 +113,10 @@ if [[ -f ~/.profile ]]; then
     echo -ne "\e[2K\r"; echo -ne "Sourcing .profile"\\r
     source ~/.profile
 fi
-if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+export VIRTUALENVWRAPPER_PATH="$(which virtualenvwrapper.sh)"
+if [[ -f ${VIRTUALENVWRAPPER_PATH} ]]; then
     echo -ne "\e[2K\r"; echo -ne "Sourcing virtualenvwrapper"\\r
-    source /usr/local/bin/virtualenvwrapper.sh
+    source ${VIRTUALENVWRAPPER_PATH}
     workon default
 fi
 
@@ -182,7 +186,7 @@ sshfs root@odv4opspuppetmaster1.gharper.dev.skytap.com:/etc/puppet /Users/gharpe
 alias ssh_umount='umount /Users/gharper/mnt/*'
 
 # Use if `brew update python` borks the venvs
-alias fixvenvs='find ~/venv/* -type l -delete ; 
+alias fixvenvs='find ~/venv/* -type l -delete ;
   virtualenv ~/venv/default ;
   virtualenv ~/venv/ansible-2.3 ;
   virtualenv ~/venv/ansible-2.4 ;

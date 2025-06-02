@@ -1,9 +1,6 @@
 # Added by Toolbox App
 export PATH="$PATH:/home/gharper/.local/share/JetBrains/Toolbox/scripts"
 
-
-if [ -e /home/gharper/.nix-profile/etc/profile.d/nix.sh ]; then . /home/gharper/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/gharper/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

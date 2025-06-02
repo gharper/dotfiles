@@ -155,16 +155,6 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-if [[ -f $(brew --prefix asdf)/libexec/asdf.sh ]]; then
-  echo "brew asdf found: activating"
-  source $(brew --prefix asdf)/libexec/asdf.sh
-fi
-if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc" ]]; then
-  source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-fi
-if [[ -f ${HOME}/.asdf/plugins/java/set-java-home.zsh ]]; then
-  source ${HOME}/.asdf/plugins/java/set-java-home.zsh
-fi
 if [[ -f $(brew --prefix mise)/bin/mise ]]; then
   echo "brew mise found: en placing"
   eval "$($(brew --prefix mise)/bin/mise activate zsh)"

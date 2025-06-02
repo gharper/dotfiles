@@ -2,29 +2,3 @@ function dy {
   dig +noall +answer +additional "$1" @dns.toys;
 }
 
-function setpass {
-  echo -n "Password: "
-  read -s PASSWORD ; echo
-  export ANSIBLE_PASSWORD=${PASSWORD}
-  export SSH_PASS=${PASSWORD}
-  export FOREMAN_USER=${USER}
-  export FOREMAN_PASSWORD=${PASSWORD}
-}
-
-function poetry-init {
-  echo "layout poetry" >! .envrc
-  direnv allow .
-  direnv exec . echo
-  if [ ! -f pyproject.toml ]; then
-    poetry init --no-interaction
-  fi
-}
-
-function puppetmaster-update {
-  _cwd=$(pwd)
-  cd ~/Devel/skytap/runtime-ansible
-  if [ -d "./inventories/$1" ]; then
-    ansible puppetmaster -i inventories/$1 -m shell -a "puppetmaster-update -e $2" -b -e "@credentials/user/gharper.yml"
-  fi
-  cd $_cwd
-}

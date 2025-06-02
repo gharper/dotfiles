@@ -2,11 +2,10 @@
 if [[ -f /opt/homebrew/bin/brew ]]; then
   echo "brew found: activating shellenv"
   eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
  
-# Openssl
-if [[ -f $(brew --prefix openssl)/bin ]]; then
-  echo "brew openssl found: pathing"
-  export PATH=$(brew --prefix openssl)/bin:$PATH
+  # Openssl
+  if [[ -f $(brew --prefix openssl)/bin ]]; then
+    echo "brew openssl found: pathing"
+    export PATH=$(brew --prefix openssl)/bin:$PATH
+  fi
 fi
-

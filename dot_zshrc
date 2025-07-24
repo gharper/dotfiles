@@ -142,23 +142,15 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-if [[ -f ~/.acme.sh/acme.sh.env ]]; then
-  source ~/.acme.sh/acme.sh.env
-fi
 if command -v fzf &>/dev/null; then
   eval "$(fzf --zsh)"
 fi
 if [[ -f /etc/ssl/certs/ca-certificates.crt ]]; then
   export REQUESTS_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
 fi
-
-# pnpm
-export PNPM_HOME="/Users/gharper/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+if command -v mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+fi
 
 source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
 

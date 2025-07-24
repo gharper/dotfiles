@@ -8,4 +8,13 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
     echo "brew openssl found: pathing"
     export PATH=$(brew --prefix openssl)/bin:$PATH
   fi
+
+  if [[ -f $(brew --prefix mise)/bin/mise ]]; then
+    echo "brew mise found: en placing"
+    eval "$($(brew --prefix mise)/bin/mise activate zsh)"
+  fi
+
+fi
+if [[ -f ~/.config/iterm2/.iterm2_shell_integration.zsh ]]; then
+  sourcesource ~/.config/iterm2/.iterm2_shell_integration.zsh
 fi

@@ -1,1 +1,7 @@
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+alias sl="ls"
+
 alias flush_dns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
